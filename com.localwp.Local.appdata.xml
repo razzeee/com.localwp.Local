@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>com.localwp.Local</id>
+  <name>Local Wordpress</name>
+  <project_license></project_license>
+  <metadata_license>CC0-1.0</metadata_license>
+  <developer_name>WP Engine</developer_name>
+  <summary>#1 local WordPress development tool</summary>
+  <url type="homepage">https://localwp.com/</url>
+  <url type="faq">https://community.localwp.com/</url>
+  <url type="contribute">https://localwp.com/get-involved/</url>
+  <description>
+    <p>
+      Empowering developers with advanced workflow features.
+      Stop debugging local environments and spend more time launching WordPress sites.
+    </p>
+  </description>
+  <keywords>
+    <keyword>WordPress</keyword>
+    <keyword>local</keyword>
+    <keyword>development</keyword>
+  </keywords>
+  <launchable type="desktop-id">com.localwp.Local.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image></image>
+      <caption>Connect tab</caption>
+    </screenshot>
+  </screenshots>
+  <releases>
+    <release version="9.0.5" date="2024-26-07"/>
+  </releases>
+  <content_rating type="oars-1.1"/>
+    <recommends>
+      <control>keyboard</control>
+      <control>pointing</control>
+  </recommends>
+</component>

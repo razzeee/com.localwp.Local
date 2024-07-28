@@ -1,0 +1,41 @@
+app-id: com.localwp.Local
+runtime: org.freedesktop.Platform
+runtime-version: "23.08"
+sdk: org.freedesktop.Sdk
+base: org.electronjs.Electron2.BaseApp
+base-version: "23.08"
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.node20
+command: local
+separate-locales: false
+rename-desktop-file: local.desktop
+rename-icon: local
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --device=dri
+  - --share=network
+  - --socket=system-bus
+modules:
+  - name: localWP
+    buildsystem: simple
+    build-commands:
+      - ar x deb
+      - rm deb
+      - tar xf data.tar.xz
+      - cp -r 'opt/Local' '/app/Local'
+      - cp -R usr/share /app
+      - desktop-file-edit --set-key=Exec --set-value='/app/bin/local'
+        /app/share/applications/local.desktop
+      - install -Dm755 local.sh /app/bin/local
+      - install -Dm644 com.localwp.Local.appdata.xml /app/share/metainfo/com.localwp.Local.metainfo.xml
+    sources:
+      - type: file
+        only-arches:
+          - x86_64
+        url: https://cdn.localwp.com/stable/latest/deb
+        sha256: b62ece8aa2334d0876c972721c6a7dad7874d4a012b83547cf16d1f98eea537a
+      - type: file
+        path: local.sh
+      - type: file
+        path: com.localwp.Local.appdata.xml
